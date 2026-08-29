@@ -28,7 +28,7 @@ Date: 2026-08-29.
 9. **User** asked to create an agent/walkthrough for Databricks step-by-step and fix folder paths. Work was **started then interrupted** by the next message. Path parameterization is **not done**.
 
 10. **User** asked to make folder **`e`** with a **clone** and a **log** so other agents have full context.  
-    **This folder** (`/agent/e/` + `agent-log/`) is that handoff.
+    Created `/agent/e/adtech-finacne-databricks` (clone) and `agent-log/` (this file set). Committed locally; GitHub push needs auth again (PAT was for one push and should be revoked).
 
 ## Git commits on this branch (local + origin)
 
