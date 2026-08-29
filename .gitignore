@@ -2,6 +2,9 @@
 data/landing/**/*.json
 data/landing/**/*.tmp
 !data/landing/.gitkeep
+data/sources/**
+!data/sources/.gitkeep
+data/sim_labels/**
 
 # Python
 __pycache__/

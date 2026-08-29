@@ -8,7 +8,8 @@ This project simulates a complete, real-world digital advertising funnel combine
 
 ```bash
 pip install -r requirements.txt
-python3 run_local.py --iterations 1
+python3 run_local.py --iterations 1          # same job as Databricks notebook 03
+python3 run_source_adapter.py                # Databricks notebook 04: topics → vendor landings
 ```
 
 ---

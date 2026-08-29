@@ -24,6 +24,17 @@ adtech-finacne-databricks/
     Adtech - generators/             # original Databricks notebooks (00–03)
 ```
 
+## Notebook 04 (do not change 03)
+
+`AdTech - Finance project/Adtech - generators/04_topics_to_real_sources.ipynb` reads generator dumps and writes **vendor-shaped** landings under `data/sources/` (Kafka envelopes, object-store logs, SFTP CSV, Stripe-like API).
+
+```bash
+python3 run_local.py --iterations 1          # still the producer (same as 03)
+python3 run_source_adapter.py                # 04: topics → real sources
+```
+
+Downstream jobs must ingest `data/sources/`, not `data/landing/`.
+
 ## Generate files locally
 
 ```bash
