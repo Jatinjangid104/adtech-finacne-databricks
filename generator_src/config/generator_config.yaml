@@ -1,0 +1,184 @@
+platform:
+  seed: 42
+  output_base_path: "data/landing"
+  batch_interval_seconds: 5
+  enable_validation: true
+  enable_metrics: true
+  log_level: "INFO"
+  replay_mode: false
+  replay_timestamp: null
+
+users:
+  total_pool_size: 3000
+  returning_user_ratio: 0.65
+  new_user_injection_rate: 0.05
+  session_timeout_minutes: 30
+  max_sessions_per_user_per_day: 5
+  device_distribution:
+    mobile: 0.58
+    desktop: 0.35
+    tablet: 0.07
+  bot_user_ratio: 0.04
+  geo_distribution:
+    US: 0.45
+    GB: 0.12
+    DE: 0.08
+    FR: 0.07
+    CA: 0.06
+    AU: 0.05
+    IN: 0.08
+    OTHER: 0.09
+
+campaigns:
+  count: 20
+  budget_distribution: "pareto"
+  pareto_alpha: 1.16
+  pricing_models:
+    CPC:
+      weight: 0.40
+      bid_floor: 0.05
+      bid_ceiling: 5.00
+      bid_distribution: "lognormal"
+      bid_mu: 0.5
+      bid_sigma: 0.8
+    CPM:
+      weight: 0.35
+      bid_floor: 0.50
+      bid_ceiling: 15.00
+      bid_distribution: "lognormal"
+      bid_mu: 1.8
+      bid_sigma: 0.6
+    CPA:
+      weight: 0.25
+      bid_floor: 5.00
+      bid_ceiling: 100.00
+      bid_distribution: "lognormal"
+      bid_mu: 3.5
+      bid_sigma: 0.9
+  categories:
+    - "retail"
+    - "finance"
+    - "gaming"
+    - "travel"
+    - "automotive"
+    - "health"
+  lifecycle:
+    active_probability: 0.85
+    paused_probability: 0.10
+    ended_probability: 0.05
+
+traffic:
+  peak_hours: [9,10,11,12,13,14,15,16,17,18,19,20]
+  peak_multiplier: 3.5
+  weekend_dampener: 0.65
+  base_events_per_second:
+    bid_requests: 20
+    impressions: 9
+    clicks: 1
+    conversions: 0.1
+    campaign_cdc: 0.03
+    refunds: 0.05
+    billing_records: 0.5
+    ledger_entries: 0.5
+
+event_rates:
+  bid_requests:
+    fraud_percentage: 0.08
+    late_event_pct: 0.05
+    late_max_minutes: 240
+    duplicate_pct: 0.02
+  impressions:
+    win_rate: 0.45
+    fraud_percentage: 0.05
+    late_event_pct: 0.08
+    late_max_minutes: 60
+    duplicate_pct: 0.01
+  clicks:
+    ctr_base: 0.025
+    fraud_percentage: 0.12
+    late_event_pct: 0.10
+    late_max_minutes: 30
+    duplicate_pct: 0.03
+    missing_impression_pct: 0.02
+  conversions:
+    cvr_base: 0.05
+    fraud_percentage: 0.03
+    delayed_conversion_max_hours: 48
+    delayed_conversion_pct: 0.25
+    missing_click_pct: 0.03
+    late_event_pct: 0.15
+    late_max_hours: 72
+    duplicate_pct: 0.01
+  campaign_cdc:
+    budget_update_pct: 0.50
+    pricing_change_pct: 0.15
+    pause_activate_pct: 0.20
+    targeting_update_pct: 0.15
+    late_event_pct: 0.05 
+  refunds:
+    late_event_pct: 0.20
+    late_max_hours: 72
+  billing_records:
+    fraud_percentage: 0.04
+    late_event_pct: 0.05
+    late_max_minutes: 60
+    duplicate_pct: 0.01
+  ledger_entries:
+    fraud_percentage: 0.00
+    late_event_pct: 0.03
+    late_max_minutes: 60
+    duplicate_pct: 0.005
+
+fraud:
+  ip_pool_size: 150
+  fraud_ip_pool_size: 10
+  click_farm_burst_window_sec: 60
+  click_farm_burst_min: 15
+  click_farm_burst_max: 50
+  bot_timing_jitter_ms: 50
+  impression_stuffing_multiplier: 8
+
+edge_cases:
+  financial:
+    zero_cost_campaign_pct: 0.02
+    negative_adjustment_pct: 0.005
+    overbilling_scenario_pct: 0.002
+    currency_rounding_pct: 0.01
+    max_overbilling_multiplier: 1.15
+
+time_chaos:
+  enabled: true
+  clock_skew_pct: 0.03
+  processing_divergence_pct: 0.05
+  ntp_rollback_pct: 0.002
+  timezone_confusion_pct: 0.02
+  multi_source_skew_pct: 0.03
+
+reconciliation:
+  failure_injection_pct: 0.04
+
+schema_evolution:
+  enabled: true
+  version_advance_probability: 0.001
+
+data_quality:
+  injection_pct: 0.02
+  critical_null_pct: 0.01
+
+burst_traffic:
+  enabled: true
+
+hot_partitions:
+  enabled: true
+
+replay:
+  enabled: false
+  replay_type: "full"
+  replay_seed: 42
+  replay_reason: "manual"
+  start_time: null
+  end_time: null
+
+validation:
+  strict_mode: false
+  max_record_age_hours: 72

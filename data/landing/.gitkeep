@@ -1,0 +1,3 @@
+# Simulated source files land here:
+#   data/landing/<event_type>/dt=YYYY-MM-DD/hr=HH/*.json
+# JSON dumps are gitignored; other agents should generate locally or read from Databricks volumes.

@@ -4,6 +4,13 @@ An enterprise-grade, high-throughput event simulator built for **Databricks and 
 
 This project simulates a complete, real-world digital advertising funnel combined with complex financial ledgers. Instead of generating sterile "happy path" mock data, it intentionally injects **14 real-world production challenges**—including click-farm fraud, schema evolution, clock skews, and rounding artifacts—making it a perfect framework for engineering robust, self-healing data pipelines.
 
+**Clone / shared folder:** see `WORKSPACE.md`. On this machine the repo is `/agent/adtech-finacne-databricks`. Python lives in `generator_src/`; generated JSON goes to `data/landing/`.
+
+```bash
+pip install -r requirements.txt
+python3 run_local.py --iterations 1
+```
+
 ---
 
 ## 💡 Why This Was Built (The Engineering Problem)
